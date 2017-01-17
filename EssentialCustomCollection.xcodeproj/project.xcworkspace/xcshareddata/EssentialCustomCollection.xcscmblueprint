@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "CF154DEDE863685E65DDA4B2041960CBC1EECD6E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "CF154DEDE863685E65DDA4B2041960CBC1EECD6E" : 9223372036854775807,
+    "EB2B5DB000B332ECCB82EB2A1CDA94A0346D56E8" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "7C6801AE-70BE-4892-8C68-A3B2EFDC9B7D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "CF154DEDE863685E65DDA4B2041960CBC1EECD6E" : "EssentialCustomCollection\/",
+    "EB2B5DB000B332ECCB82EB2A1CDA94A0346D56E8" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "EssentialCustomCollection",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "EssentialCustomCollection.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/thanhthucbkinfo\/EssentialCustomCollection.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CF154DEDE863685E65DDA4B2041960CBC1EECD6E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/thanhthucbkinfo\/YourLife.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EB2B5DB000B332ECCB82EB2A1CDA94A0346D56E8"
+    }
+  ]
+}
