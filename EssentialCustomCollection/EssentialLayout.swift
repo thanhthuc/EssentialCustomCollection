@@ -17,7 +17,7 @@ protocol EssentialLayoutDelegate: class {
 
 class EssentialLayout: UICollectionViewFlowLayout {
    
-   weak var delegate: EssentialLayoutDelegate?
+   weak var delegate: EssentialLayoutDelegate!
    
    // 2
    var numberOfColumns = 2
@@ -47,23 +47,50 @@ class EssentialLayout: UICollectionViewFlowLayout {
          }
          
          //yOffset
-         var column = 0
+         let column = 0
          var yOffset = [CGFloat](repeating: 0, count: numberOfColumns)
          
-         //3 This loops through all the items in the first section, as 
+         //3 This loops through all the items in the first section, as
          // this particular layout has only one section.
          for item in 0 ..< collectionView!.numberOfItems(inSection: 0) {
             let indexPath = IndexPath(item: item, section: 0)
             
-            //4 
+            //4
             let width = columnWidth - cellPadding * 2
-            let photoHeight = delegate?.collectionView(collectionView: collectionView!, heightForPhotoAtIndexPath: indexPath, withWidth: width)
+            let photoHeight = delegate.collectionView(collectionView: collectionView!, heightForPhotoAtIndexPath: indexPath, withWidth: width)
+            let annotationHeight = delegate.collectionView(collectionView: collectionView!, heightForAnnotationAtIndexPath: indexPath, withWidth: width)
+            let height = cellPadding + photoHeight + annotationHeight + cellPadding
+            let frame = CGRect(x: xOffset[column], y: yOffset[column], width: width, height: height)
+            let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
+            
+            //5
+            let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+            attributes.frame = insetFrame
+            cache.append(attributes)
+            
+            //6
+            contentHeight = max(contentHeight, frame.maxY)
+            yOffset[column] = yOffset[column] + height
             
          }
          
       }
       
+   }
+   
+   override var collectionViewContentSize: CGSize {
+      return CGSize(width: contentWidth, height: contentHeight)
+   }
+   
+   override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+      var layoutAttributes = [UICollectionViewLayoutAttributes]()
+      for attributes in cache {
+         if attributes.frame.intersects(rect) {
+            layoutAttributes.append(attributes)
+         }
+      }
       
+      return layoutAttributes
    }
    
 }

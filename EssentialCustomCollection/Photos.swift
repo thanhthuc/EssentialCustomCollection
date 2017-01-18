@@ -33,4 +33,9 @@ class Photo: NSObject {
         let nameImage = dict["Photo"] as? String
         self.image = UIImage(named: nameImage!)
     }
+   
+   func heightForComment(font: UIFont, width: CGFloat) -> CGFloat {
+      let rect = NSString(string: comment!).boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+      return ceil(rect.height)
+   }
 }

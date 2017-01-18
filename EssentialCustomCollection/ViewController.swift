@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
    
@@ -18,17 +19,17 @@ class ViewController: UIViewController {
       // Do any additional setup after loading the view, typically from a nib.
       collectionView.delegate = self
       collectionView.dataSource = self
-      
+            
+      if let layout = collectionView?.collectionViewLayout as? EssentialLayout {
+         layout.delegate = self
+      }
    }
    
    override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
       // Dispose of any resources that can be recreated.
    }
-   
 }
-
-
 
 
 extension ViewController: UICollectionViewDataSource {
@@ -36,7 +37,7 @@ extension ViewController: UICollectionViewDataSource {
    
    
    func numberOfSections(in collectionView: UICollectionView) -> Int {
-      return 1
+      return 2
    }
    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
       return photos.count
@@ -52,16 +53,29 @@ extension ViewController: UICollectionViewDataSource {
 
 extension ViewController: UICollectionViewDelegate {
    
-   
-   
 }
 
-extension ViewController: UICollectionViewDelegateFlowLayout {
-   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-      return CGSize(width: 140, height: 140)
+
+extension ViewController : EssentialLayoutDelegate {
+   // 1
+   func collectionView(collectionView:UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath,
+                       withWidth width: CGFloat) -> CGFloat {
+      let photo = photos[indexPath.item]
+      let boundingRect =  CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
+      let rect = AVMakeRect(aspectRatio: photo.image!.size, insideRect: boundingRect)
+      return rect.size.height
    }
    
-   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-      return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+   // 2
+   func collectionView(collectionView: UICollectionView,
+                       heightForAnnotationAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
+      let annotationPadding = CGFloat(4)
+      let annotationHeaderHeight = CGFloat(17)
+      let photo = photos[indexPath.item]
+      let font = UIFont(name: "AvenirNext-Regular", size: 10)!
+      let commentHeight = photo.heightForComment(font: font, width: width)
+      let height = annotationPadding + annotationHeaderHeight + commentHeight + annotationPadding
+      
+      return height
    }
 }
