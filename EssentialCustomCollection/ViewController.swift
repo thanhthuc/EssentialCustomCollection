@@ -19,7 +19,7 @@ class ViewController: UIViewController {
       // Do any additional setup after loading the view, typically from a nib.
       collectionView.delegate = self
       collectionView.dataSource = self
-            
+      
       if let layout = collectionView?.collectionViewLayout as? EssentialLayout {
          layout.delegate = self
       }

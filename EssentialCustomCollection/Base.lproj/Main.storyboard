@@ -28,27 +28,27 @@
                                 <collectionViewLayout key="collectionViewLayout" id="XQN-n2-lHf" customClass="EssentialLayout" customModule="EssentialCustomCollection"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="8zE-W2-wey" customClass="PhotosCollectionViewCell" customModule="EssentialCustomCollection" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="367" height="346"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="367" height="346"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tL1-sQ-7bu" customClass="BorderView" customModule="EssentialCustomCollection" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="367" height="346"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uUr-52-U7M">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="8"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="367" height="314.5"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2L-Yk-fYH">
-                                                            <rect key="frame" x="0.0" y="29" width="50" height="21"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2L-Yk-fYH">
+                                                            <rect key="frame" x="0.0" y="332.5" width="367" height="13.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGd-zf-sBT">
-                                                            <rect key="frame" x="0.0" y="8" width="50" height="21"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGd-zf-sBT">
+                                                            <rect key="frame" x="0.0" y="314.5" width="367" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -57,6 +57,7 @@
                                                     <constraints>
                                                         <constraint firstItem="RGd-zf-sBT" firstAttribute="top" secondItem="uUr-52-U7M" secondAttribute="bottom" id="0e0-gc-Pcd"/>
                                                         <constraint firstItem="s2L-Yk-fYH" firstAttribute="top" secondItem="RGd-zf-sBT" secondAttribute="bottom" id="99Z-wV-kF4"/>
+                                                        <constraint firstAttribute="bottom" secondItem="s2L-Yk-fYH" secondAttribute="bottom" id="Mbr-De-1KB"/>
                                                         <constraint firstAttribute="trailing" secondItem="uUr-52-U7M" secondAttribute="trailing" id="Ogs-SA-Ydn"/>
                                                         <constraint firstAttribute="trailing" secondItem="RGd-zf-sBT" secondAttribute="trailing" id="PYW-wA-7Bb"/>
                                                         <constraint firstAttribute="trailing" secondItem="s2L-Yk-fYH" secondAttribute="trailing" id="QOo-iY-cGt"/>
@@ -65,7 +66,6 @@
                                                         <constraint firstItem="uUr-52-U7M" firstAttribute="leading" secondItem="tL1-sQ-7bu" secondAttribute="leading" id="nUg-qu-Q0a"/>
                                                         <constraint firstItem="s2L-Yk-fYH" firstAttribute="leading" secondItem="tL1-sQ-7bu" secondAttribute="leading" id="tHV-Ni-0bM"/>
                                                         <constraint firstItem="uUr-52-U7M" firstAttribute="top" secondItem="tL1-sQ-7bu" secondAttribute="top" id="upO-Oz-mFo"/>
-                                                        <constraint firstAttribute="bottom" secondItem="s2L-Yk-fYH" secondAttribute="bottom" id="yH6-hJ-svb"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -81,6 +81,7 @@
                                             <constraint firstAttribute="bottom" secondItem="tL1-sQ-7bu" secondAttribute="bottom" id="mT4-jo-HR0"/>
                                             <constraint firstItem="tL1-sQ-7bu" firstAttribute="leading" secondItem="8zE-W2-wey" secondAttribute="leading" id="nzH-fW-UtR"/>
                                         </constraints>
+                                        <size key="customSize" width="367" height="346"/>
                                         <connections>
                                             <outlet property="caption" destination="RGd-zf-sBT" id="u5b-2l-TRf"/>
                                             <outlet property="comment" destination="s2L-Yk-fYH" id="gi3-3a-Psx"/>

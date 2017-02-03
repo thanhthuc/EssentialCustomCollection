@@ -8,10 +8,35 @@
 
 import UIKit
 
+
+
 protocol EssentialLayoutDelegate: class {
-   
    func collectionView(collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath, withWidth: CGFloat) -> CGFloat
    func collectionView(collectionView: UICollectionView, heightForAnnotationAtIndexPath indexPath: IndexPath, withWidth: CGFloat) -> CGFloat
+}
+
+class PinterestLayoutAttributes: UICollectionViewLayoutAttributes {
+   // 1
+   var photoHeight: CGFloat = 0.0
+   
+   //2
+   override func copy(with zone: NSZone? = nil) -> Any {
+      
+      let copy = super.copy(with: zone) as! PinterestLayoutAttributes
+      copy.photoHeight = photoHeight
+      
+      return copy
+   }
+   
+   //3
+   override func isEqual(_ object: Any?) -> Bool {
+      if let attributes = object as? PinterestLayoutAttributes {
+         if( attributes.photoHeight == photoHeight  ) {
+            return super.isEqual(object)
+         }
+      }
+      return false
+   }
    
 }
 
@@ -47,7 +72,7 @@ class EssentialLayout: UICollectionViewFlowLayout {
          }
          
          //yOffset
-         let column = 0
+         var column = 0
          var yOffset = [CGFloat](repeating: 0, count: numberOfColumns)
          
          //3 This loops through all the items in the first section, as
@@ -71,11 +96,9 @@ class EssentialLayout: UICollectionViewFlowLayout {
             //6
             contentHeight = max(contentHeight, frame.maxY)
             yOffset[column] = yOffset[column] + height
-            
+            column = column >= (numberOfColumns - 1) ? 0: (column + 1)
          }
-         
       }
-      
    }
    
    override var collectionViewContentSize: CGSize {
@@ -89,8 +112,9 @@ class EssentialLayout: UICollectionViewFlowLayout {
             layoutAttributes.append(attributes)
          }
       }
-      
       return layoutAttributes
    }
+   
+   
    
 }
